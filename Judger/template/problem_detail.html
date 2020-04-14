@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Problem Detail</title>
+  <meta name="generator" content="Google Web Designer 7.0.1.1101">
+  <style type="text/css" id="gwd-text-style">
+    p {
+      margin: 0px;
+    }
+
+    h1 {
+      margin: 0px;
+    }
+
+    h2 {
+      margin: 0px;
+    }
+
+    h3 {
+      margin: 0px;
+    }
+  </style>
+  <style type="text/css">
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+    }
+
+    body {
+      background-color: transparent;
+      transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform-style: preserve-3d;
+    }
+
+    .gwd-span-1by8 {
+      position: absolute;
+      height: 28.8px;
+      text-align: center;
+      width: 50%;
+      left: 25%;
+      font-size: 20px;
+      top: 22px;
+    }
+
+    .gwd-span-1e6w {
+      position: absolute;
+      top: 35px;
+      transform-origin: 205.212px 77.6px 0px;
+      width: 75%;
+      left: 12%;
+      height: 50%;
+    }
+
+    .gwd-input-1obs {
+      position: absolute;
+      height: 27.2px;
+      width: 25%;
+      left: 33%;
+      top: 69%;
+    }
+    .gwd-button-1etg {
+      position: absolute;
+      height: 33.6px;
+      background-image: none;
+      border-width: 0px;
+      border-image-source: none;
+      border-image-width: 1;
+      border-image-outset: 0;
+      border-image-repeat: stretch;
+      border-color: rgb(192, 188, 188);
+      color: rgb(255, 255, 255);
+      background-color: rgb(0, 145, 255);
+      border-radius: 5px;
+      width: 25.89%;
+      left: 33.16%;
+      top: 83.23%;
+    }
+  </style>
+
+  {% if messages %}
+  {% for message in messages %}
+
+  <script>
+    alert("{{ message }}");
+  </script>
+
+  {% endfor %}
+  {% endif %}
+</head>
+
+<body class="htmlNoPages">
+  
+  {% comment %} <span class="gwd-span-1by8">Problem Title</span> {% endcomment %}
+  <div class="gwd-span-1e6w">{{content|safe}}</div> 
+  <form method="POST" enctype="multipart/form-data" action="{% url 'judger:upload_answer' problem %}">  
+    {% csrf_token %}
+    <input class="gwd-input-1obs" type="file" name="{{file_var_name}}" id="pypypy" accept="{{accepted_extension}}">
+    <button class="gwd-button-1etg">Upload Jawaban Anda</button>
+  </form>
+</body>
+  <script>
+    
+    //limiting the file size to
+    var uploadField = document.getElementById("pypypy");
+    uploadField.onchange = function() {
+        if(this.files[0].size > {{max_answer_size}}){
+          alert("ukuran file tidak boleh lebih dari {{max_answer_size}} byte!"); 
+          this.value = "";
+        };
+    };
+
+
+  </script>
+</html>

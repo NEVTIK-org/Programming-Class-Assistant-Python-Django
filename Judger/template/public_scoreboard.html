@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Public ScoreBoard</title>
+  <meta name="generator" content="Google Web Designer 6.0.1.0801">
+  <style type="text/css" id="gwd-text-style">
+    p {
+      margin: 0px;
+    }
+    h1 {
+      margin: 0px;
+    }
+    h2 {
+      margin: 0px;
+    }
+    h3 {
+      margin: 0px;
+    }
+  </style>
+  <style type="text/css">
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+    }
+    body {
+      background-color: transparent;
+      transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform-style: preserve-3d;
+    }
+    .gwd-div-1hqv {
+      position: absolute;
+      text-align: center;
+      width: 90%;
+      left: 5%;
+      height: 70%;
+      top: 250px;
+    }
+    .gwd-span-1dun {
+      position: absolute;
+      top: 15.41%;
+      height: 6.92%;
+      width: 30%;
+      left: 5%;
+      text-align: left;
+    }
+    .gwd-span-49iu {
+      left: 45%;
+    }
+    .gwd-span-18jc {
+      left: 80%;
+      font-size: 40px;
+      top: 120.39px;
+      height: 44.01px;
+    }
+    .gwd-span-j5qi {
+      font-size: 40px;
+      top: 120.39px;
+      height: 44.01px;
+    }
+    .gwd-span-1squ {
+      font-size: 40px;
+      top: 120.39px;
+      height: 44.01px;
+    }
+    .gwd-span-rhfv {
+      position: absolute;
+      text-align: center;
+      font-size: 40px;
+      font-weight: bold;
+      top: 22.01px;
+      height: 76px;
+      width: 100%;
+      
+    }
+    .gwd-div-nh2g {
+      
+      text-align: center;
+      width: 92%;
+      left: 3%;
+      height: 49.99px;
+      top: 10px;
+    }
+    .gwd-span-18k6 {
+      
+      transform-origin: 139px 24px 0px;
+      left: -0.35%;
+      top: 0%;
+      width: 32.69%;
+      height: 96.06%;
+      text-align: center;
+      font-size: 35px;
+    }
+    .gwd-span-7vzj {
+      left: 32.95%;
+    }
+    .gwd-span-1up5 {
+      left: 67.17%;
+    }
+    .gwd-div-140l {
+      position: absolute;
+      top: 180px;
+      width: 96.15%;
+      left: 2%;      
+    }
+    .gwd-div-2neu {
+      
+      height: 58.6667px;
+      top: 9.00003px;
+      left: 1.12%;
+      width: 98.08%;
+      border-style: solid;
+      border-width: 1px;
+      border-image-source: none;
+      border-image-width: 1;
+      border-image-outset: 0;
+      border-image-repeat: stretch;
+      border-color: rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+    }
+    .gwd-p-bx1q {
+      
+      width: 100%;
+      height: 48px;
+      text-align: left;
+      font-size: 30px;
+      left: 9px;
+      top: 7px;
+      margin-left: 15px;
+    }
+    .gwd-p-bzrx {
+      left: 1.47%;
+      width: 31.37%;
+    }
+    .gwd-p-wxfv {
+      top: 5px;
+      left: 66.99%;
+      width: 100%;
+    }        
+  </style>
+
+  {% if messages %}
+  {% for message in messages %}
+
+  <script>
+    alert("{{ message }}");
+  </script>
+
+  {% endfor %}
+  {% endif %}
+</head>
+
+<body class="htmlNoPages">
+  <table class="gwd-div-140l" border=1>
+    {% for i in data %}    
+    <tr id="problem" class="gwd-div-2neu" onclick="window.location.href=''">
+      <td ><p class="gwd-p-bx1q gwd-p-wxfv">{{i.student.name}}</p></td>
+      <td ><p class="gwd-p-bx1q gwd-p-wxfv">{{i.problem}}</p></td>
+      <td ><p class="gwd-p-bx1q gwd-p-wxfv">{{i.score}}</p></td>
+    </tr> 
+    {% endfor %}
+    <!-- <tr id="problem" class="gwd-div-2neu" onclick="window.location.href=''">
+      <td ><p class="gwd-p-bx1q gwd-p-wxfv">U</p></td>
+      <td ><p class="gwd-p-bx1q gwd-p-wxfv">0</p></td>
+      <td ><p class="gwd-p-bx1q gwd-p-wxfv">A</p></td>
+    </tr>      -->
+  </table>
+
+
+  {% comment %} <table class="gwd-div-1hqv" border="1">
+    <tr class="gwd-div-nh2g">
+      <td>
+        <span class="gwd-span-18k6">Tes</span>
+      </td>
+        <td>
+        <span class="gwd-span-18k6">Tes</span>
+      </td>
+    </tr>
+    <tr class="gwd-div-nh2g">
+      <td>
+        <span class="gwd-span-18k6">Tes</span>
+      </td>
+        <td>
+        <span class="gwd-span-18k6">Tes</span>
+      </td>
+    </tr>    
+  </table> {% endcomment %}
+  
+  {% comment %} <div class="gwd-div-1hqv">
+    {% for i in data %}    
+    <div class="gwd-div-nh2g" style="top: {{counter.count}}px;">
+      <span class="gwd-span-18k6">{{i.student.name}}</span>
+      <span class="gwd-span-18k6 gwd-span-7vzj">{{i.problem}}</span>
+      <span class="gwd-span-18k6 gwd-span-7vzj gwd-span-1up5">{{i.score}}</span>
+    </div> 
+
+    {{counter.increment}}
+    {% endfor %}
+    
+    {% comment %} <tr style="width:100%;">
+      <td style="width:30%;">
+        <p class="gwd-span-18k6">Test</p>
+      </td>
+    </tr> 
+  </div> {% endcomment %}
+  
+  <span class="gwd-span-1dun gwd-span-j5qi">Name</span>
+  <span class="gwd-span-1dun gwd-span-49iu gwd-span-1squ">Problem</span>
+  <span class="gwd-span-1dun gwd-span-49iu gwd-span-18jc">Score</span>
+  <span class="gwd-span-rhfv">Public Scoreboard</span></body>
+</html>

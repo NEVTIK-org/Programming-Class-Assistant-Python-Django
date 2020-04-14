@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Presensi</title>
+  <meta name="generator" content="Google Web Designer 7.0.1.1008">
+  <style type="text/css" id="gwd-text-style">
+    p {
+      margin: 0px;
+    }
+    h1 {
+      margin: 0px;
+    }
+    h2 {
+      margin: 0px;
+    }
+    h3 {
+      margin: 0px;
+    }
+  </style>
+  <style type="text/css">
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+    }
+    body {
+      background-color: transparent;
+      transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform-style: preserve-3d;
+    }
+    .gwd-span-4fj1 {
+      position: absolute;
+      height: 38px;
+      top: 57px;
+      text-align: center;
+      font-size: 25px;
+      width: 30%;
+      left: 35%;
+    }
+    .gwd-span-p8gs {
+      top: 157px;
+    }
+    .gwd-span-5isk {
+      top: 317px;
+      color: rgb(104, 104, 104);
+    }
+    .gwd-input-rsmv {
+      position: absolute;
+      top: 216px;
+      height: 38px;
+      width: 30%;
+      left: 35%;
+      font-size: 25px;
+    }
+    .gwd-input-kdv2 {
+      top: 384px;
+    }
+    .gwd-span-8azs {
+      color: rgb(104, 104, 104);
+    }
+    .gwd-button-1fac {
+      position: absolute;
+      height: 46px;
+      width: 30%;
+      top: 480px;
+      left: 35.33%;
+      border-radius: 5px;
+      background-image: none;
+      background-color: rgb(83, 172, 250);
+      font-size: 20px;
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="htmlNoPages">
+  <form action="{% url 'get_student:presensi' %}" method="POST">
+    {% csrf_token %}
+    <span class="gwd-span-4fj1">Formulir Presensi</span>
+    <span class="gwd-span-4fj1 gwd-span-p8gs gwd-span-8azs">Email</span>
+    <span class="gwd-span-4fj1 gwd-span-p8gs gwd-span-5isk">Password</span>
+    <input class="gwd-input-rsmv" name="email" type="email">
+    <input class="gwd-input-rsmv gwd-input-kdv2" name="password" type="password">
+    <button class="gwd-button-1fac">Saya Hadir! :)</button>
+  </form>
+</body>
+
+</html>

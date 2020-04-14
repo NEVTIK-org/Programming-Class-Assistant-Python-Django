@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Student Form</title>
+  <meta name="generator" content="Google Web Designer 6.0.1.0801">
+  <style type="text/css" id="gwd-text-style">
+    p {
+      margin: 0px;
+    }
+    h1 {
+      margin: 0px;
+    }
+    h2 {
+      margin: 0px;
+    }
+    h3 {
+      margin: 0px;
+    }
+  </style>
+  <style type="text/css">
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+    }
+    body {
+      background-color: transparent;
+      transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform-style: preserve-3d;
+    }
+    .gwd-div-1r54 {
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      left: 25%;
+      top: 0%;
+    }
+    .gwd-input-wkkg {
+      position: absolute;
+      width: 50%;
+      left: 25%;
+      top: 5%;
+      height: 20%;
+    }
+    .gwd-input-iwdm {
+      height: 25px;
+      top: 44.52px;
+    }
+    .gwd-input-1v6x {
+      top: 98.52px;
+    }
+    .gwd-input-1uai {
+      top: 147.52px;
+    }
+    .gwd-input-jvvc {
+      top: 290.52px;
+      left: 24%;
+    }
+    .gwd-input-b4o1 {
+      left: 24%;
+      top: 34px;
+    }
+    .gwd-input-vjl2 {
+      left: 26%;
+      top: 228px;
+    }
+    .gwd-input-bw4g {
+      left: 24%;
+      top: 162px;
+    }
+    .gwd-button-1pm3 {
+      position: absolute;
+      width: 50%;
+      left: 25%;
+      height: 30px;
+      background-image: none;
+      background-color: rgb(82, 139, 225);
+      color: rgb(255, 255, 255);
+      font-weight: bold;
+      border-width: 0px;
+      border-radius: 10px;
+      top: 336.52px;
+    }
+    .gwd-input-qsrr {
+      position: absolute;
+      width: 50%;
+      left: 25%;
+      height: 25px;
+      top: 10px;
+      text-align: center;
+    }
+    .gwd-h1-lai6 {
+      font-size: 10px;
+    }
+    .gwd-p-1agk {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .gwd-p-yjsu {
+      left: 24.69%;
+      font-size: 15px;
+      height: 22.24px;
+      top: 73.17px;
+    }
+    .gwd-p-1lip {
+      cursor: auto;
+      top: 175px;
+    }
+    .gwd-p-16ib {
+      font-size: 15px;
+      height: 22.24px;
+      top: 266.76px;
+      left: 25.31%;
+    }
+    .gwd-p-63mm {
+      left: 24.69%;
+      font-size: 15px;
+      height: 22.24px;
+      top: 138.56px;
+    }
+    .gwd-p-107n {
+      font-size: 15px;
+      height: 22.24px;
+    }
+    .gwd-input-1t6d {
+      top: 229px;
+      left: 25.01%;
+    }
+    .gwd-p-1xd8 {
+      top: 205px;
+      left: 26%;
+    }
+    .gwd-p-1cts {
+      top: 271.76px;
+    }
+    .gwd-input-58qa {
+      top: 98px;
+    }
+    .gwd-select-28xw {
+      top: 294px;
+    }
+  </style>
+</head>
+
+<body class="htmlNoPages">
+  <div class="gwd-div-1r54">
+    <form method="POST">
+        {% csrf_token %}
+      <input class="gwd-input-wkkg gwd-input-iwdm gwd-input-b4o1" name="email" type="email">
+      <input class="gwd-input-wkkg gwd-input-iwdm gwd-input-1v6x gwd-input-1uai gwd-input-bw4g" name="name" >
+      <input class="gwd-input-wkkg gwd-input-iwdm gwd-input-1v6x gwd-input-1uai gwd-input-jvvc gwd-input-58qa" name="password" type="password">
+      <select class="gwd-input-wkkg gwd-input-iwdm gwd-input-1v6x gwd-input-vjl2" name="kelas">
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+      </select>
+      <select class="gwd-input-wkkg gwd-input-iwdm gwd-input-1v6x gwd-input-vjl2 gwd-select-28xw" name="jurusan">
+        <option>TKJ</option>
+        <option>SIJA</option>
+        <option>RPL</option>
+      </select>
+      <button class="gwd-button-1pm3">Submit</button>
+      <p class="gwd-input-qsrr gwd-p-1agk gwd-p-107n">Email</p>
+      <p class="gwd-input-qsrr gwd-p-1agk gwd-p-1lip gwd-p-63mm">Nama Lengkap</p>
+      <p class="gwd-input-qsrr gwd-p-1agk gwd-p-1lip gwd-p-16ib gwd-p-1cts">Jurusan</p>
+      <p class="gwd-input-qsrr gwd-p-1agk gwd-p-1lip gwd-p-16ib gwd-p-1xd8">Kelas</p>
+      <p class="gwd-input-qsrr gwd-p-1agk gwd-p-yjsu">Password</p>
+    </form>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Problem List</title>
+  <meta name="generator" content="Google Web Designer 7.0.1.1101">
+  <style type="text/css" id="gwd-text-style">
+    p {
+      margin: 0px;
+    }
+    h1 {
+      margin: 0px;
+    }
+    h2 {
+      margin: 0px;
+    }
+    h3 {
+      margin: 0px;
+    }
+  </style>
+    <style type="text/css">
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+    }
+    body {
+      background-color: transparent;
+      transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+      transform-style: preserve-3d;
+    }
+    .gwd-p-n66b {
+      position: absolute;
+      height: 65.3333px;
+      top: 18px;
+      text-align: center;
+      font-size: 35px;
+      width: 40%;
+      left: 30%;
+    }
+    .gwd-div-140l {
+      position: absolute;
+      top: 91px;
+      width: 96.15%;
+      left: 2%;      
+    }
+    .gwd-div-2neu {
+      
+      height: 58.6667px;
+      top: 9.00003px;
+      left: 1.12%;
+      width: 98.08%;
+      border-style: solid;
+      border-width: 1px;
+      border-image-source: none;
+      border-image-width: 1;
+      border-image-outset: 0;
+      border-image-repeat: stretch;
+      border-color: rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+    }
+    .gwd-p-bx1q {
+      
+      width: 192px;
+      height: 48px;
+      text-align: center;
+      font-size: 30px;
+      left: 9px;
+      top: 7px;
+    }
+    .gwd-p-wxfv {
+      top: 5px;
+      left: 66.99%;
+      width: 31.37%;
+    }
+    .gwd-p-bzrx {
+      left: 1.47%;
+      width: 31.37%;
+    }
+  </style>
+</head>
+
+<body class="htmlNoPages">
+  <p class="gwd-p-n66b">Problem List</p>
+
+  <table class="gwd-div-140l" border=1>
+    {% for prob, index in problems %}
+    <tr id="problem" class="gwd-div-2neu" onclick="window.location.href='{{prob}}'">
+      <td id="problem_name{{index}}"><p class="gwd-p-bx1q gwd-p-bzrx">{{prob}}</p></td>
+      <td id="score{{index}}"><p class="gwd-p-bx1q gwd-p-wxfv">100</p></td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% comment %} <div class="gwd-div-140l">
+    <div class="gwd-div-2neu">
+      <p class="gwd-p-bx1q gwd-p-bzrx">Title Problem</p>
+      <p class="gwd-p-bx1q gwd-p-wxfv">100</p>
+    </div>             
+    <div class="gwd-div-2neu">
+      <p class="gwd-p-bx1q gwd-p-bzrx">Title Problem</p>
+      <p class="gwd-p-bx1q gwd-p-wxfv">100</p>
+    </div>                 
+  </div> {% endcomment %}
+  
+</body>
+
+</html>

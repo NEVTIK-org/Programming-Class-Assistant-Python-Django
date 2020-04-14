@@ -1,0 +1,423 @@
+-- MySQL dump 10.17  Distrib 10.3.13-MariaDB, for debian-linux-gnu (x86_64)
+--
+-- Host: 127.0.0.1    Database: programmingclass
+-- ------------------------------------------------------
+-- Server version	10.1.38-MariaDB
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `GetStudent_presensi`
+--
+
+DROP TABLE IF EXISTS `GetStudent_presensi`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `GetStudent_presensi` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(50) NOT NULL,
+  `kelas` varchar(50) NOT NULL,
+  `jurusan` varchar(50) NOT NULL,
+  `waktu` datetime(6) NOT NULL,
+  `index` int(11) NOT NULL,
+  `student_info_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `GetStudent_presensi_student_info_id_0035a080_fk_User_student_id` (`student_info_id`),
+  CONSTRAINT `GetStudent_presensi_student_info_id_0035a080_fk_User_student_id` FOREIGN KEY (`student_info_id`) REFERENCES `User_student` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `GetStudent_presensi`
+--
+
+LOCK TABLES `GetStudent_presensi` WRITE;
+/*!40000 ALTER TABLE `GetStudent_presensi` DISABLE KEYS */;
+INSERT INTO `GetStudent_presensi` VALUES (2,'Kevin AS','12','RPL','2019-11-10 10:03:32.211542',1,1),(4,'mulia','11','SIJA','2019-11-10 10:07:57.992826',1,3);
+/*!40000 ALTER TABLE `GetStudent_presensi` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Judger_stuprosco`
+--
+
+DROP TABLE IF EXISTS `Judger_stuprosco`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Judger_stuprosco` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `problem` varchar(100) NOT NULL,
+  `score` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `Judger_stuprosco_student_id_8057c5fc_fk_User_student_id` (`student_id`),
+  CONSTRAINT `Judger_stuprosco_student_id_8057c5fc_fk_User_student_id` FOREIGN KEY (`student_id`) REFERENCES `User_student` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Judger_stuprosco`
+--
+
+LOCK TABLES `Judger_stuprosco` WRITE;
+/*!40000 ALTER TABLE `Judger_stuprosco` DISABLE KEYS */;
+INSERT INTO `Judger_stuprosco` VALUES (8,'Angka_Terbilang',100,1),(9,'Angka_Terbilang',100,8);
+/*!40000 ALTER TABLE `Judger_stuprosco` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `User_jurusan`
+--
+
+DROP TABLE IF EXISTS `User_jurusan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `User_jurusan` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_jurusan` varchar(25) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `User_jurusan_nama_jurusan_79816c59_uniq` (`nama_jurusan`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `User_jurusan`
+--
+
+LOCK TABLES `User_jurusan` WRITE;
+/*!40000 ALTER TABLE `User_jurusan` DISABLE KEYS */;
+INSERT INTO `User_jurusan` VALUES (4,'MM'),(3,'RPL'),(2,'SIJA'),(1,'TKJ');
+/*!40000 ALTER TABLE `User_jurusan` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `User_kelas`
+--
+
+DROP TABLE IF EXISTS `User_kelas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `User_kelas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tingkat` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `User_kelas_tingkat_9bcfbacd_uniq` (`tingkat`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `User_kelas`
+--
+
+LOCK TABLES `User_kelas` WRITE;
+/*!40000 ALTER TABLE `User_kelas` DISABLE KEYS */;
+INSERT INTO `User_kelas` VALUES (1,10),(2,11),(3,12);
+/*!40000 ALTER TABLE `User_kelas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `User_student`
+--
+
+DROP TABLE IF EXISTS `User_student`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `User_student` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(254) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `kelas_id` int(11) NOT NULL,
+  `jurusan_id` int(11) NOT NULL,
+  `date_joined` datetime(6) NOT NULL,
+  `first_name` varchar(30) NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `is_staff` tinyint(1) NOT NULL,
+  `is_superuser` tinyint(1) NOT NULL,
+  `last_login` datetime(6) DEFAULT NULL,
+  `last_name` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`),
+  KEY `User_student_kelas_id_d7e8e9ee_fk_User_kelas_id` (`kelas_id`),
+  KEY `User_student_jurusan_id_259a2f04_fk_User_jurusan_id` (`jurusan_id`),
+  CONSTRAINT `User_student_jurusan_id_259a2f04_fk_User_jurusan_id` FOREIGN KEY (`jurusan_id`) REFERENCES `User_jurusan` (`id`),
+  CONSTRAINT `User_student_kelas_id_d7e8e9ee_fk_User_kelas_id` FOREIGN KEY (`kelas_id`) REFERENCES `User_kelas` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `User_student`
+--
+
+LOCK TABLES `User_student` WRITE;
+/*!40000 ALTER TABLE `User_student` DISABLE KEYS */;
+INSERT INTO `User_student` VALUES (1,'kevin@gmail.com','kevin','Kevin AS',3,3,'2019-11-10 09:59:33.063561','',1,0,0,'2019-12-14 06:41:13.411744',''),(2,'faris@gmail.com','faris','faris',3,1,'2019-11-10 10:00:46.081893','',1,0,0,'2019-12-14 06:32:48.486205',''),(3,'mulia@gmail.com','mulia','mulia',2,2,'2019-11-10 10:01:12.512667','',1,0,0,'2019-12-14 06:29:20.650864',''),(4,'tes@gmail.com','tes','tes',1,1,'2019-12-14 05:34:10.061926','',1,0,0,'2019-12-14 05:34:10.090716',''),(5,'rahmat@gmail.com','rahmat','rahmat hidayat',1,2,'2019-12-14 06:13:19.808889','',1,0,0,'2019-12-14 06:13:19.835693',''),(6,'rezaramdhani461@gmail.com','pasirjambu','Muhamad Jamil',1,2,'2019-12-14 06:13:20.207480','',1,0,0,'2019-12-14 06:13:20.229119',''),(7,'ggjoneh81@gmail.com','enank1531','Chelseano Putra',1,1,'2019-12-14 06:13:25.416031','',1,0,0,'2019-12-14 06:13:25.438222',''),(8,'mahaguru@gmail.com','123','mahaguru',2,3,'2019-12-14 06:59:46.438847','',1,0,0,'2019-12-14 06:59:46.471129',''),(9,'a@gmail.com','tes','tes',1,1,'2019-12-14 07:08:24.381480','',1,0,0,'2019-12-14 07:08:24.409382','');
+/*!40000 ALTER TABLE `User_student` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `User_student_groups`
+--
+
+DROP TABLE IF EXISTS `User_student_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `User_student_groups` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `student_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `User_student_groups_student_id_group_id_fd33eb51_uniq` (`student_id`,`group_id`),
+  KEY `User_student_groups_group_id_6921f21c_fk_auth_group_id` (`group_id`),
+  CONSTRAINT `User_student_groups_group_id_6921f21c_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  CONSTRAINT `User_student_groups_student_id_e9421c2c_fk_User_student_id` FOREIGN KEY (`student_id`) REFERENCES `User_student` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `User_student_groups`
+--
+
+LOCK TABLES `User_student_groups` WRITE;
+/*!40000 ALTER TABLE `User_student_groups` DISABLE KEYS */;
+/*!40000 ALTER TABLE `User_student_groups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `User_student_user_permissions`
+--
+
+DROP TABLE IF EXISTS `User_student_user_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `User_student_user_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `student_id` int(11) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `User_student_user_permis_student_id_permission_id_35c759ef_uniq` (`student_id`,`permission_id`),
+  KEY `User_student_user_pe_permission_id_805fc988_fk_auth_perm` (`permission_id`),
+  CONSTRAINT `User_student_user_pe_permission_id_805fc988_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `User_student_user_pe_student_id_52609ba5_fk_User_stud` FOREIGN KEY (`student_id`) REFERENCES `User_student` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `User_student_user_permissions`
+--
+
+LOCK TABLES `User_student_user_permissions` WRITE;
+/*!40000 ALTER TABLE `User_student_user_permissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `User_student_user_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_group`
+--
+
+DROP TABLE IF EXISTS `auth_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_group` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group`
+--
+
+LOCK TABLES `auth_group` WRITE;
+/*!40000 ALTER TABLE `auth_group` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_group` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_group_permissions`
+--
+
+DROP TABLE IF EXISTS `auth_group_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_group_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_group_permissions_group_id_permission_id_0cd325b0_uniq` (`group_id`,`permission_id`),
+  KEY `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` (`permission_id`),
+  CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group_permissions`
+--
+
+LOCK TABLES `auth_group_permissions` WRITE;
+/*!40000 ALTER TABLE `auth_group_permissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_group_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_permission`
+--
+
+DROP TABLE IF EXISTS `auth_permission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `auth_permission` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `content_type_id` int(11) NOT NULL,
+  `codename` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`),
+  CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_permission`
+--
+
+LOCK TABLES `auth_permission` WRITE;
+/*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
+INSERT INTO `auth_permission` VALUES (1,'Can add log entry',1,'add_logentry'),(2,'Can change log entry',1,'change_logentry'),(3,'Can delete log entry',1,'delete_logentry'),(4,'Can view log entry',1,'view_logentry'),(5,'Can add permission',2,'add_permission'),(6,'Can change permission',2,'change_permission'),(7,'Can delete permission',2,'delete_permission'),(8,'Can view permission',2,'view_permission'),(9,'Can add group',3,'add_group'),(10,'Can change group',3,'change_group'),(11,'Can delete group',3,'delete_group'),(12,'Can view group',3,'view_group'),(13,'Can add content type',4,'add_contenttype'),(14,'Can change content type',4,'change_contenttype'),(15,'Can delete content type',4,'delete_contenttype'),(16,'Can view content type',4,'view_contenttype'),(17,'Can add session',5,'add_session'),(18,'Can change session',5,'change_session'),(19,'Can delete session',5,'delete_session'),(20,'Can view session',5,'view_session'),(21,'Can add user',6,'add_student'),(22,'Can change user',6,'change_student'),(23,'Can delete user',6,'delete_student'),(24,'Can view user',6,'view_student'),(25,'Can add presensi',7,'add_presensi'),(26,'Can change presensi',7,'change_presensi'),(27,'Can delete presensi',7,'delete_presensi'),(28,'Can view presensi',7,'view_presensi'),(29,'Can add jurusan',8,'add_jurusan'),(30,'Can change jurusan',8,'change_jurusan'),(31,'Can delete jurusan',8,'delete_jurusan'),(32,'Can view jurusan',8,'view_jurusan'),(33,'Can add user',9,'add_student'),(34,'Can change user',9,'change_student'),(35,'Can delete user',9,'delete_student'),(36,'Can view user',9,'view_student'),(37,'Can add kelas',10,'add_kelas'),(38,'Can change kelas',10,'change_kelas'),(39,'Can delete kelas',10,'delete_kelas'),(40,'Can view kelas',10,'view_kelas'),(41,'Can add stu pro sco',11,'add_stuprosco'),(42,'Can change stu pro sco',11,'change_stuprosco'),(43,'Can delete stu pro sco',11,'delete_stuprosco'),(44,'Can view stu pro sco',11,'view_stuprosco');
+/*!40000 ALTER TABLE `auth_permission` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_admin_log`
+--
+
+DROP TABLE IF EXISTS `django_admin_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_admin_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `action_time` datetime(6) NOT NULL,
+  `object_id` longtext,
+  `object_repr` varchar(200) NOT NULL,
+  `action_flag` smallint(5) unsigned NOT NULL,
+  `change_message` longtext NOT NULL,
+  `content_type_id` int(11) DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `django_admin_log_content_type_id_c4bce8eb_fk_django_co` (`content_type_id`),
+  KEY `django_admin_log_user_id_c564eba6_fk_User_student_id` (`user_id`),
+  CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+  CONSTRAINT `django_admin_log_user_id_c564eba6_fk_User_student_id` FOREIGN KEY (`user_id`) REFERENCES `User_student` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_admin_log`
+--
+
+LOCK TABLES `django_admin_log` WRITE;
+/*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
+/*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_content_type`
+--
+
+DROP TABLE IF EXISTS `django_content_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_content_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `app_label` varchar(100) NOT NULL,
+  `model` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `django_content_type_app_label_model_76bd3d3b_uniq` (`app_label`,`model`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_content_type`
+--
+
+LOCK TABLES `django_content_type` WRITE;
+/*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
+INSERT INTO `django_content_type` VALUES (1,'admin','logentry'),(3,'auth','group'),(2,'auth','permission'),(4,'contenttypes','contenttype'),(7,'GetStudent','presensi'),(6,'GetStudent','student'),(11,'Judger','stuprosco'),(5,'sessions','session'),(8,'User','jurusan'),(10,'User','kelas'),(9,'User','student');
+/*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_migrations`
+--
+
+DROP TABLE IF EXISTS `django_migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_migrations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `app` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `applied` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_migrations`
+--
+
+LOCK TABLES `django_migrations` WRITE;
+/*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
+INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2019-11-10 09:52:54.088697'),(2,'contenttypes','0002_remove_content_type_name','2019-11-10 09:52:58.313946'),(3,'auth','0001_initial','2019-11-10 09:52:59.880232'),(4,'auth','0002_alter_permission_name_max_length','2019-11-10 09:53:33.072676'),(5,'auth','0003_alter_user_email_max_length','2019-11-10 09:53:33.659755'),(6,'auth','0004_alter_user_username_opts','2019-11-10 09:53:33.882959'),(7,'auth','0005_alter_user_last_login_null','2019-11-10 09:53:34.056821'),(8,'auth','0006_require_contenttypes_0002','2019-11-10 09:53:34.102074'),(9,'auth','0007_alter_validators_add_error_messages','2019-11-10 09:53:34.154075'),(10,'auth','0008_alter_user_username_max_length','2019-11-10 09:53:34.208038'),(11,'auth','0009_alter_user_last_name_max_length','2019-11-10 09:53:34.262671'),(12,'auth','0010_alter_group_name_max_length','2019-11-10 09:53:43.770596'),(13,'auth','0011_update_proxy_permissions','2019-11-10 09:53:45.452710'),(14,'User','0001_initial','2019-11-10 09:53:46.651275'),(15,'User','0002_student','2019-11-10 09:53:51.310148'),(16,'User','0003_auto_20191110_0357','2019-11-10 09:53:57.048547'),(17,'User','0004_auto_20191110_0620','2019-11-10 09:54:18.023877'),(18,'User','0005_auto_20191110_0621','2019-11-10 09:54:21.404118'),(19,'User','0006_remove_kelas_jurusan','2019-11-10 09:54:24.785033'),(20,'User','0007_auto_20191110_0704','2019-11-10 09:54:53.791861'),(21,'GetStudent','0001_initial','2019-11-10 09:55:23.185796'),(22,'GetStudent','0002_remove_presensi_student_info','2019-11-10 09:55:35.428935'),(23,'GetStudent','0003_presensi_student_info','2019-11-10 09:55:41.016471'),(24,'admin','0001_initial','2019-11-10 09:55:50.347117'),(25,'admin','0002_logentry_remove_auto_add','2019-11-10 09:55:52.251995'),(26,'admin','0003_logentry_add_action_flag_choices','2019-11-10 09:55:52.312743'),(27,'sessions','0001_initial','2019-11-10 09:55:52.701752'),(28,'GetStudent','0004_auto_20191110_1003','2019-11-10 10:03:16.997314'),(29,'Judger','0001_initial','2019-11-14 06:50:19.840065');
+/*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_session`
+--
+
+DROP TABLE IF EXISTS `django_session`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `django_session` (
+  `session_key` varchar(40) NOT NULL,
+  `session_data` longtext NOT NULL,
+  `expire_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`session_key`),
+  KEY `django_session_expire_date_a5c62663` (`expire_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_session`
+--
+
+LOCK TABLES `django_session` WRITE;
+/*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
+INSERT INTO `django_session` VALUES ('3833sdhbirx2ywypa6czwsy07nks7z0z','ZjFmNjM0MTg5MTE3YzM5MmVmY2IwNTM4ZmUxMGE1OGJjYjRhM2JlMjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiVXNlci5iYWNrZW5kcy5BdXRoZW50aWNhdGlvbkJhY2tlbmQuQXV0aGVudGljYXRpb25CYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiOWM5ODJmNTVmYjI2YjUxNDg5YjNlNzEzMmNhNzU5ZjBjMDg3YjQ4ZiJ9','2019-12-14 18:38:45.375224'),('97e6rva03v0mr8n3ibopoygo0km8k2oh','OGI0NjVlMDdlMmY1NWUzYWFkMGZiMDM1NWM5ZGEwN2E2Y2U2NDY4Nzp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiVXNlci5iYWNrZW5kcy5BdXRoZW50aWNhdGlvbkJhY2tlbmQuQXV0aGVudGljYXRpb25CYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiYjgyMWNkMTQ3MzQ2NTgzMWEzN2JiYjY1MTEwNjQ3NmVlMjk3ZDY5MiJ9','2019-12-28 05:44:41.190268'),('albf55o53q3zla08sgw6gikx60c67poo','OGI0NjVlMDdlMmY1NWUzYWFkMGZiMDM1NWM5ZGEwN2E2Y2U2NDY4Nzp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiVXNlci5iYWNrZW5kcy5BdXRoZW50aWNhdGlvbkJhY2tlbmQuQXV0aGVudGljYXRpb25CYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiYjgyMWNkMTQ3MzQ2NTgzMWEzN2JiYjY1MTEwNjQ3NmVlMjk3ZDY5MiJ9','2019-12-28 06:32:48.496342'),('asikhrulnfn39bsqvl7k2bf0o923tkf5','ODVkNDEyMzc5YzI5NzZmYzhkYTY4OGI0MTFkZjFkZmUzNmRmMTc4Yjp7fQ==','2019-12-28 05:28:04.331813'),('bqfmyf4fyr2ztis726lx1tb2jyjlg282','ZjFmNjM0MTg5MTE3YzM5MmVmY2IwNTM4ZmUxMGE1OGJjYjRhM2JlMjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiVXNlci5iYWNrZW5kcy5BdXRoZW50aWNhdGlvbkJhY2tlbmQuQXV0aGVudGljYXRpb25CYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiOWM5ODJmNTVmYjI2YjUxNDg5YjNlNzEzMmNhNzU5ZjBjMDg3YjQ4ZiJ9','2019-12-28 06:41:13.428415'),('cv9r1596tyizubpoqs4gfnoi4fao03vn','ZWU4NDMzNjQyOTVkMDlmYTc1NGQwYThmZTEwMjE2NGQ2ZjZmMjE5OTp7Il9hdXRoX3VzZXJfaWQiOiI5IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiVXNlci5iYWNrZW5kcy5BdXRoZW50aWNhdGlvbkJhY2tlbmQuQXV0aGVudGljYXRpb25CYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNzk2MTllZjBlYTBlYjYyM2E5MmQxODg1YjAyMTNkOGJjMGVjMTI1YiJ9','2019-12-28 07:08:24.426011'),('fcwx8taidkivnvuooble3a77l6twtx7e','MWIwMWViNjI4N2NlNTZmNGYyYTY2ZDdjMjZkMjFlNzUyMzc5Y2M5Mzp7Il9hdXRoX3VzZXJfaWQiOiI4IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiVXNlci5iYWNrZW5kcy5BdXRoZW50aWNhdGlvbkJhY2tlbmQuQXV0aGVudGljYXRpb25CYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiZjIwOTgzZjY2MGZlNTljMDhlNDBiZGJiYTZlMGFlZDRmOTAyMzY4ZSJ9','2019-12-28 06:59:46.482245'),('ibrwtalmwz53wguw9edumy271ydwrtim','NTdjMzEzOWMwN2E0MDk5ODc0ZTMyYWU4YjA0NmMyZjlhYmQ0MWVlZjp7Il9hdXRoX3VzZXJfaWQiOiI1IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiVXNlci5iYWNrZW5kcy5BdXRoZW50aWNhdGlvbkJhY2tlbmQuQXV0aGVudGljYXRpb25CYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiZjViMWNjYTBlZWQ1NDUzZWRkYzhlYzM5ZTE4MjAyZmRjNzg4NWNkZCJ9','2019-12-28 06:13:19.856665'),('inh9eynjjbbg9bjpi7a9cuzfnffhhrpd','MGEzYmI2YWRiNTdhNDJmYTQyMTU5YzE0YjI0N2IzMTVjN2UxODg3MTp7Il9hdXRoX3VzZXJfaWQiOiI2IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiVXNlci5iYWNrZW5kcy5BdXRoZW50aWNhdGlvbkJhY2tlbmQuQXV0aGVudGljYXRpb25CYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiZjkxZmFmNjFmY2YzZGMzN2U3Y2VlN2Q4Mjg4NDM5NTVmOGExMjBjZSJ9','2019-12-28 06:13:20.241130'),('recbywm9cpas5c02v6im2rzd4lkz642m','YjY0ZWZhN2ZhMDlmODIzNjcyMjIzOWFhZGU0NzljNmQ1OTJiZDQ5Zjp7Il9hdXRoX3VzZXJfaWQiOiI3IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiVXNlci5iYWNrZW5kcy5BdXRoZW50aWNhdGlvbkJhY2tlbmQuQXV0aGVudGljYXRpb25CYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiZjliZWRhYThkNmQ1OGRjYjdiYTM4NWMyMjdkNTcwZDI5NDM0NjI5NyJ9','2019-12-28 06:13:25.447763'),('vl0kbyuo4vmb43093ukuoly4j5u4dsjm','YTFlY2UxNTA2MGEzZTFlOTgwZmMzMjYxMTM0NWY3NzI4MzM5NzkwNjp7Il9hdXRoX3VzZXJfaWQiOiIzIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiVXNlci5iYWNrZW5kcy5BdXRoZW50aWNhdGlvbkJhY2tlbmQuQXV0aGVudGljYXRpb25CYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiZjc1YTg1YWM5ZjI2YmM5OTUzYWQ2Mzk3MTg4MjBjYzQwMjFjNzliNSJ9','2019-11-24 10:01:12.773681'),('xh3bqt5d3f99lh36y3a3ah5qhoyi0ai5','YTFlY2UxNTA2MGEzZTFlOTgwZmMzMjYxMTM0NWY3NzI4MzM5NzkwNjp7Il9hdXRoX3VzZXJfaWQiOiIzIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiVXNlci5iYWNrZW5kcy5BdXRoZW50aWNhdGlvbkJhY2tlbmQuQXV0aGVudGljYXRpb25CYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiZjc1YTg1YWM5ZjI2YmM5OTUzYWQ2Mzk3MTg4MjBjYzQwMjFjNzliNSJ9','2019-12-28 06:29:20.661641'),('z2egzd85gstcplg1ib0gl5jaa4h33azs','ZjFmNjM0MTg5MTE3YzM5MmVmY2IwNTM4ZmUxMGE1OGJjYjRhM2JlMjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiVXNlci5iYWNrZW5kcy5BdXRoZW50aWNhdGlvbkJhY2tlbmQuQXV0aGVudGljYXRpb25CYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiOWM5ODJmNTVmYjI2YjUxNDg5YjNlNzEzMmNhNzU5ZjBjMDg3YjQ4ZiJ9','2019-11-28 05:18:22.398997');
+/*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-12-14 14:25:58
